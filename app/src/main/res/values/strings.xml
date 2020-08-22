@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Github User App</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search User</string>
+    <string name="detail_user">Detail User</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="tab_followers">Followers</string>
+    <string name="tab_following">Following</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="please_submit_keyword">Please enter keywords first</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="please_type_keywords">Please type keywords</string>
+    <string name="title_dialog_exit_app">Exit</string>
+    <string name="message_dialog_exit_app">Are you sure you want to exit this application?</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="delete_title">Delete</string>
+    <string name="delete_message">Are you sure you want to delete it?</string>
+    <string name="save_to_favorite">User has been saved to favorites</string>
+    <string name="delete_from_favorite">User removed from favorites</string>
+    <string name="settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="system_header">System</string>
+
+    <!-- Preferences System-->
+    <string name="reminder_title">Reminder</string>
+    <string name="reminder_content">It\'s 9 o\'clock</string>
+    <string name="reminder_summary">as a reminder at 09.00</string>
+    <string name="reminder_on_message">Reminder on</string>
+    <string name="reminder_off_message">Reminder off</string>
+
+
+</resources>

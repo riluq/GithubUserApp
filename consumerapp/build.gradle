@@ -1,0 +1,140 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+    dataBinding {
+        enabled = true
+    }
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.riluq.consumerapp"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField("String", "TOKEN", "\"e081853aec34a83dfbf3b7fdf70e383776113186\"")
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField("String", "TOKEN", "\"e081853aec34a83dfbf3b7fdf70e383776113186\"")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    androidExtensions {
+        experimental = true
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // android support libraries
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.core:core-ktx:$coreKtx"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.vectordrawable:vectordrawable:$vectorDrawableVersion"
+    implementation "androidx.vectordrawable:vectordrawable-animated:$animatedVectorDrawableVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.annotation:annotation:$androidXAnnotations"
+    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
+
+    // lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+
+    // fragment ktx
+    implementation "androidx.fragment:fragment-ktx:$fragmentKtxVesion"
+
+    // network - Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$versionRetrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$versionRetrofit"
+
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    // Logging Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:$versionOkhttpLoggingInterceptor"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versionKotlinCoroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versionKotlinCoroutines"
+
+    // parser - Moshi
+    implementation "com.squareup.moshi:moshi:$versionMoshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$versionMoshi"
+    implementation 'androidx.preference:preference:1.1.0'
+
+    // parser - Moshi kotlin codegen
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$versionMoshi"
+
+    // image - Glide
+    implementation("com.github.bumptech.glide:glide:$glideVersion") {
+        exclude group: "androidx"
+    }
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // database - Room
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    // database - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$roomVersion"
+
+    // Dependencies for Paging
+    implementation "androidx.paging:paging-runtime:$pagingVersion"
+
+    // dependency injection
+    implementation "com.google.dagger:dagger:$dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2Version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$dagger2Version"
+
+    // logger
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    // Material dialog
+    implementation "com.afollestad.material-dialogs:core:$materialDialogVersion"
+
+    // Multidex
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}
